@@ -1,0 +1,13 @@
+services:
+  db: 
+    image: postgres:15
+    container_name: ssec_db
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./sql/init:/docker-entrypoint-initdb.d
+      - ssec_data:/var/lib/postgresql/data
+volumes:
+  ssec_data:

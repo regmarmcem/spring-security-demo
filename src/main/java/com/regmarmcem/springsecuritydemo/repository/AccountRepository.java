@@ -26,7 +26,7 @@ public class AccountRepository {
                 a.password,
                 r.name AS role_name
             FROM
-                account a
+                accounts a
             JOIN
                 account_role ar
             ON
