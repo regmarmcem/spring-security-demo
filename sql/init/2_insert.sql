@@ -1,8 +1,8 @@
 INSERT INTO accounts 
     (email, name, password)
 VALUES
-    ('general@example.com', 'general', 'general'),
-    ('addmin@example.com', 'admin', 'admin')
+    ('general@example.com', 'general', '$2y$10$h2UnFVTbRJhE6jiuq4vVO.CJat4w8cQtrn5SxctpuaNebr3dtEwcm'),
+    ('admin@example.com', 'admin', '$2y$10$Y2LsuiW5Ws.Uy5umA3ya8OMdz974vhvUJDCNS/yH5RY/Ga844Olnm')
 ;
 
 INSERT INTO roles
