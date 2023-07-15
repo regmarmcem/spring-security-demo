@@ -1,4 +1,15 @@
 services:
+  app:
+    build: .
+    container_name: ssec_app
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - ssec_app:/var/lib/spring/data
   db: 
     image: postgres:15
     container_name: ssec_db
@@ -10,4 +21,5 @@ services:
       - ./sql/init:/docker-entrypoint-initdb.d
       - ssec_data:/var/lib/postgresql/data
 volumes:
+  ssec_app:
   ssec_data:
