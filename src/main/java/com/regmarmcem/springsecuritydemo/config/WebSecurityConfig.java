@@ -15,10 +15,12 @@ public class WebSecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authz -> 
-        authz.requestMatchers("/hello", "/login").permitAll()
-             .anyRequest().authenticated())
-        .formLogin(login -> 
-            login.loginPage("/login"));
+            authz.requestMatchers("/hello", "/login").permitAll()
+            .anyRequest().authenticated()
+        ).formLogin(login -> 
+            login.loginPage("/login")
+            .defaultSuccessUrl("/user")
+        );
         
         return http.build();
     }
