@@ -8,9 +8,9 @@ VALUES
 INSERT INTO roles
     (name)
 VALUES
-    ('sys_admin'),
-    ('user_admin'),
-    ('general')
+    ('SYS_ADMIN'),
+    ('USER_ADMIN'),
+    ('GENERAL')
 ;
 
 INSERT INTO account_role
@@ -18,14 +18,14 @@ INSERT INTO account_role
 VALUES
     (
         (SELECT id FROM accounts WHERE name = 'admin'),
-        (SELECT id FROM roles WHERE name = 'sys_admin')
+        (SELECT id FROM roles WHERE name = 'SYS_ADMIN')
     ),
     (
         (SELECT id FROM accounts WHERE name = 'admin'),
-        (SELECT id FROM roles WHERE name = 'user_admin')
+        (SELECT id FROM roles WHERE name = 'USER_ADMIN')
     ),
     (
         (SELECT id FROM accounts WHERE name = 'general'),
-        (SELECT id FROM roles WHERE name = 'general')
+        (SELECT id FROM roles WHERE name = 'GENERAL')
     )
 ;

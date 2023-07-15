@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Home</h1>
+    <p sec:authorize="authenticated">Welcome, <span sec:authentication="principal.account.name"></span>!</p>
+    <ul>
+        <li sec:authorize="not authenticated"><a th:href="@{/login}">Login Page</a></li>
+        <li sec:authorize-url="/user"><a href="user.html" th:href="@{/user}">General User Page</a></li>
+        <li sec:authorize-url="/sys_admin"><a href="sys_admin.html" th:href="@{/sys_admin}">System Admin Page</a></li>
+        <li sec:authorize-url="/user_admin"><a href="user_admin.html" th:href="@{/user_admin}">User Admin Page</a></li>
+    </ul>
+    <form sec:authorize="authenticated" method="post" action="index.html" th:action="@{/logout}">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
