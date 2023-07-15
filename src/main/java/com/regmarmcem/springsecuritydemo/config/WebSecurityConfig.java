@@ -20,6 +20,9 @@ public class WebSecurityConfig {
         ).formLogin(login -> 
             login.loginPage("/login")
             .defaultSuccessUrl("/user")
+            .permitAll()
+        ).logout(logout ->
+            logout.logoutSuccessUrl("/login")
         );
         
         return http.build();

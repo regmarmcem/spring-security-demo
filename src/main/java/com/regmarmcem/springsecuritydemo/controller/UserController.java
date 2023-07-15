@@ -1,14 +1,15 @@
 package com.regmarmcem.springsecuritydemo.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/user")
+
+@Controller
+@RequestMapping(path = "/user")
 public class UserController {
     @GetMapping
     public String userInfo() {
-        return "This is private page";
-    }  
+        return "user";
+    }
 }
